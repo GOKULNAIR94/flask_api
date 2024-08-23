@@ -52,7 +52,7 @@ def get_competitors():
     competitors_text = "\n".join(competitors_list)
     
     # Use the Together API to get the response
-    client = Together(api_key="ba06df84ebc489fc27515bda7e4084989ad3a1975cc3bf759dbbe0eea61d8dff")
+    client = Together(api_key="")
     
     # Craft the message content with dynamic business name
     message_content = f"Give just names of top 10 competitors of {business_name} from text:\n{competitors_text}"
