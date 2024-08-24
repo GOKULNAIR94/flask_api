@@ -3,3 +3,4 @@ flask_ngrok
 bs4
 scikit-learn
 together
+gunicorn
