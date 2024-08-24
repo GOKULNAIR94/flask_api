@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify
 import requests
 from bs4 import BeautifulSoup
@@ -41,7 +42,7 @@ def get_competitors():
     business_name = data.get('business')
     location = data.get('location')
     # Define the business and location
-    #business_name = "TATA MOTORS"
+    business_name = "TATA MOTORS"
     #location = "India"
     
     # Fetch the competitors data
@@ -51,8 +52,10 @@ def get_competitors():
     # Format the competitors list into a string
     competitors_text = "\n".join(competitors_list)
     
+    api_key = os.getenv("TOGETHER_API_KEY")
+    
     # Use the Together API to get the response
-    client = Together(api_key="")
+    client = Together(api_key=api_key)
     
     # Craft the message content with dynamic business name
     message_content = f"Give just names of top 10 competitors of {business_name} from text:\n{competitors_text}"
